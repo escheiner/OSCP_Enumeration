@@ -97,7 +97,7 @@ do
         110|995)
             # POP3/POP3S (110/tcp, 995/tcp)
             echo "POP Version detection + NSE scripts"
-            pop_cmd = "nmap -Pn -sV -p $port "--script=banner,(pop3* or ssl*) and not (brute or broadcast or dos or external or fuzzer)" -oN tcp_port_pop3_nmap.txt $ip"
+            pop_cmd = "nmap -Pn -sV -p $port --script=banner,(pop3* or ssl*) and not (brute or broadcast or dos or external or fuzzer) -oN tcp_port_pop3_nmap.txt $ip"
             echo $pop_cmd
             $pop_cmd
             ;;
@@ -271,7 +271,9 @@ do
             echo $mssqlclient_share_permissions_cmd
             $mssqlclient_share_permissions_cmd
             echo "List share contents"
+            ;;
     esac
+done
 echo "Enumeration complete"
 
                 
